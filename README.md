@@ -7,7 +7,7 @@ There's however a few quirks you need to work around to make this possible.
 
 - When exporting you may need to modify the `CultureAndRegionModifiers.None` flag depending on what kind of culture you are trying to transfer - I believe it can depend a bit whether the culture is a "specific supplemental culture" or one of the basic built-in ones (not entirely sure but you can tinker with this if it doesn't want to comply).
 
-- Just importing the missing culture from the file **not** work, as the static method `CultureAndRegionInfoBuilder.CreateFromLdml` apparently expects the culture name to already exist on the machine before allowing to load a culture from a file (...what?).
+- Just importing the missing culture from the file will **not** work, as the static method `CultureAndRegionInfoBuilder.CreateFromLdml` apparently expects the culture name to already exist on the machine before allowing to load a culture from a file (...what?).
 
 To work around this, I create a temporary culture using the name of the culture we want to import. Then I add some required data from an existing culture (doesn't matter which one as long as it exists - it's just temporary) and register the culture.
 
